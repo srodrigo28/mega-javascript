@@ -110,3 +110,17 @@ footer #acertos{
     border-left: solid var(--cor-verd);
     padding-left: 10px;
 }
+
+/** Mobile Responsive 390px */
+@media(max-width: 390px) {
+    main{
+        min-height: 170px;
+    }
+    main button{
+        margin: 1px;
+        padding: 1px;
+    }
+    .container{
+        min-height: 450px;
+    }
+}
