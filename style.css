@@ -55,6 +55,9 @@ main button{
     border-radius: 3px;
     padding: 3px;
 }
+main button:hover:disabled{
+    cursor: not-allowed;
+}
 .btn{
     padding: 5px;
     width: 130px;
@@ -69,6 +72,9 @@ main button{
 }
 .btn:hover{
     border: 2px solid var(--cor-verd)
+}
+#btnApostar:hover:disabled{
+    cursor: not-allowed;   
 }
 .resultado{
     display: flex;
