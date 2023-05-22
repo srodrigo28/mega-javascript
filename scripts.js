@@ -1,8 +1,7 @@
 const numerosApostados = [];
 const resultado = [];
-
 let valorAposta = 0;
-
+let qtdAcertos = 0;
 const btnApostar = document.getElementById('btnApostar');
 btnApostar.disabled = true;
 
@@ -14,9 +13,9 @@ function sortearNumeros(){
         while(resultado.includes(numeroSorteado)){
             let numeroSorteado  = Math.round(Match.rando() * 59 + 1);
         }
+        resultado.push(numeroSorteado);
     }
 }
-
 function selecionarNumeros(numero){
 
     if(numerosApostados.length >= 0 && numerosApostados.length < 15){
@@ -43,13 +42,11 @@ function selecionarNumeros(numero){
         
     }
 }
-
 function desabilitarNumeroEscolhido(numero){
     document.getElementById("num_"+numero).disabled = true;
     document.getElementById("num_"+numero).style.color = "#fff"
     document.getElementById("num_"+numero).style.background = "#009e4c"
 }
-
 function valorDaAposta(){
     switch(numerosApostados.length){
         case 6: 
@@ -89,4 +86,18 @@ function valorDaAposta(){
     divValorAposta.innerHTML = `<p>Valor da Aposta</p> <p class="valor">${valorAposta}</p>`;
     // console.log(divValorAposta);
 
+}
+
+function apostar(){
+    // fazer a aposta comparar as duas listas
+    for( i=0; i<numerosApostados.length; i++){
+        for( j=0; j<resultado.length; j++){
+            if(numerosApostados[i] == resultado[j]){
+                qtdAcertos++;
+            }
+        }
+    }
+    // mostrar o resultado
+
+    // desabilitar o botao selecionar numeros
 }
