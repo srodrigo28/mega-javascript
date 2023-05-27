@@ -97,7 +97,7 @@ function apostar() {
     for( i=0; i<numerosApostados.length; i++ ){
         if (resultado.includes(numerosApostados[i])) {
             qtdAcertos++;
-            console.log(qtdAcertos)
+            console.log("Quantidade de acertos: " + qtdAcertos)
         }
     }
     // mostrar o resultado
@@ -107,6 +107,9 @@ function apostar() {
        
     }
 
-    console.log('click fim')
+    // Mostrar a quantidade de acertos
+    let divAcertos = document.getElementById("acertos")
+    divAcertos.innerHTML = "<p class='valor'>" + qtdAcertos + "</p>"
+
     // desabilitar o botao selecionar numeros
 }
