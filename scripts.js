@@ -111,5 +111,24 @@ function apostar() {
     let divAcertos = document.getElementById("acertos")
     divAcertos.innerHTML = "<p class='valor'>" + qtdAcertos + "</p>"
 
-    // desabilitar o botao selecionar numeros
+    desarbilitarApostar();
+    desarbilitarTodosNumeros();
+
+    // habilita o botão reinicar
+    document.getElementById("btnReiniciar").style.display = 'inline';
 }
+
+function desarbilitarTodosNumeros() {
+    for (i = 1; i<=60; i++){
+        document.getElementById("num_"+i).disabled = true;
+    }
+}
+function desarbilitarApostar() {
+        document.getElementById("btnApostar").disabled = true;
+}
+
+// Aciona o atualizar a página
+let btn = document.querySelector("#btnReiniciar");
+btn.addEventListener("click", function (){
+    location.reload();
+});
