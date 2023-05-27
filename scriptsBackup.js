@@ -2,22 +2,18 @@ const numerosApostados = [];
 const resultado = [];
 let valorAposta = 0;
 let qtdAcertos = 0;
-
 const btnApostar = document.getElementById('btnApostar');
 btnApostar.disabled = true;
 
-sortearNumeros();
-
 function sortearNumeros(){
-    for (i = 0; i < 6; i++){
-        let numeroSorteado = Math.round(Math.random() * 59 + 1);
-        
-        while (resultado.includes(numeroSorteado)) {
-            let numeroSorteado = Math.round(Math.random() * 59 + 1);
-            console.log(numeroSorteado);
+
+    for(i=0; i<6; i++){
+        let numeroSorteado  = Math.round(Match.rando() * 59 + 1);
+
+        while(resultado.includes(numeroSorteado)){
+            let numeroSorteado  = Math.round(Match.rando() * 59 + 1);
         }
         resultado.push(numeroSorteado);
-        console.log(numeroSorteado);
     }
 }
 function selecionarNumeros(numero){
@@ -91,22 +87,17 @@ function valorDaAposta(){
     // console.log(divValorAposta);
 
 }
-function apostar() {
-    console.log('click Inicio')
+
+function apostar(){
     // fazer a aposta comparar as duas listas
-    for( i=0; i<numerosApostados.length; i++ ){
-        if (resultado.includes(numerosApostados[i])) {
-            qtdAcertos++;
-            console.log(qtdAcertos)
+    for( i=0; i<numerosApostados.length; i++){
+        for( j=0; j<resultado.length; j++){
+            if(numerosApostados[i] == resultado[j]){
+                qtdAcertos++;
+            }
         }
     }
     // mostrar o resultado
-    const divResultado = document.getElementById("resultado");
-    for ( i = 0; i < resultado.length; i++){
-        divResultado.innerHTML += "<div class='resultadoCicle'>" + resultado[i] + "</div>";
-       
-    }
 
-    console.log('click fim')
     // desabilitar o botao selecionar numeros
 }
